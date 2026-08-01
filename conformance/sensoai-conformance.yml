@@ -1,0 +1,25 @@
+generated: '2026-07-21'
+method: derived
+source: docs.senso.ai + github.com/AI-Template-SDK
+standards:
+- id: rest-json
+  conforms: true
+  evidence: JSON over HTTPS REST API at /api/v1 with resource-oriented paths.
+- id: api-key-auth
+  conforms: true
+  evidence: X-API-Key header authentication documented and used by the CLI and MCP server.
+- id: mcp
+  conforms: true
+  evidence: Official Model Context Protocol server published (AI-Template-SDK/api-mcp-server).
+- id: oauth2
+  conforms: false
+  evidence: No OAuth 2.0 flows documented for the API (Clerk is used only for dashboard sign-in).
+- id: rfc9457-problem-details
+  conforms: false
+  evidence: No application/problem+json error envelope published on the public API surface.
+- id: asyncapi-events
+  conforms: false
+  evidence: No webhook or event/streaming surface found.
+notes: >-
+  Derived from public docs and first-party repos; no third-party compliance certifications
+  (SOC 2 / ISO 27001 / PCI / HIPAA / FedRAMP) were published, so no Compliance pointer is emitted.

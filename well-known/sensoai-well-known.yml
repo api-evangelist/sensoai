@@ -1,0 +1,31 @@
+generated: '2026-07-21'
+method: probed
+notes: >-
+  Probed /.well-known/* on senso.ai, apiv2.senso.ai, and docs.senso.ai. No genuine well-known
+  discovery documents were found. senso.ai and apiv2.senso.ai return 404 for all probed paths.
+  docs.senso.ai returns HTTP 200 for every path, but the body is the Next.js SPA shell
+  (Content-Type text/html) rather than a real security.txt / OIDC / oauth-authorization-server /
+  api-catalog / ai-plugin document, so these are recorded as not-present. No WellKnown or
+  SecurityTxt pointer is emitted (no real document to point at).
+hosts:
+- host: https://senso.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://apiv2.senso.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 404}
+  - {path: /.well-known/openid-configuration, status: 404}
+  - {path: /.well-known/oauth-authorization-server, status: 404}
+  - {path: /.well-known/api-catalog, status: 404}
+  - {path: /.well-known/ai-plugin.json, status: 404}
+- host: https://docs.senso.ai
+  documents:
+  - {path: /.well-known/security.txt, status: 200, content_type: text/html, real: false, note: SPA catch-all}
+  - {path: /.well-known/openid-configuration, status: 200, content_type: text/html, real: false, note: SPA catch-all}
+  - {path: /.well-known/oauth-authorization-server, status: 200, content_type: text/html, real: false, note: SPA catch-all}
+  - {path: /.well-known/api-catalog, status: 200, content_type: text/html, real: false, note: SPA catch-all}
+  - {path: /.well-known/ai-plugin.json, status: 200, content_type: text/html, real: false, note: SPA catch-all}

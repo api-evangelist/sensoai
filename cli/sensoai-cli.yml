@@ -1,0 +1,72 @@
+generated: '2026-07-21'
+method: searched
+source: https://github.com/AI-Template-SDK/senso-user-cli
+name: senso
+package: "@senso-ai/cli"
+version: 0.11.1
+runtime: node
+requires: Node.js 18+
+platforms: [linux, macos, windows]
+install:
+- npm install -g @senso-ai/cli
+- npx @senso-ai/cli --help
+auth:
+  method: X-API-Key
+  key_prefix: tgr_
+  resolution_order:
+  - "--api-key flag"
+  - SENSO_API_KEY env var
+  - ~/.config/senso/config.json stored key
+  - interactive prompt (first run)
+global_options:
+- "--api-key <key>"
+- "--base-url <url> (default https://apiv2.senso.ai/api/v1)"
+- "--output <json|table|plain>"
+- "--quiet"
+- "--no-update-check"
+command_groups:
+- group: auth
+  commands: [login, logout, whoami]
+- group: search
+  commands: [search, "search context", "search content"]
+- group: content
+  commands: [list, get, versions, delete, unpublish, verification, verification-counts,
+    reject, restore, owners, set-owners, remove-owner]
+- group: generated-content
+  commands: [list, get]
+- group: generate
+  commands: [settings, update-settings, sample, run]
+- group: engine
+  commands: [publish, draft]
+- group: competitors
+  commands: [list, add, suggest, batch-add, update, delete]
+- group: tracked-sources
+  commands: [list, add, update, delete]
+- group: ingest
+  commands: [upload, reprocess]
+- group: brand-kit
+  commands: [get, set]
+- group: content-types
+  commands: [list, create, get, update, delete]
+- group: prompts
+  commands: [list, create, get, delete]
+- group: org
+  commands: [get, update]
+- group: users
+  commands: [list, add, get, update, remove, set-current]
+- group: api-keys
+  commands: [list, create, get, update, delete, revoke]
+- group: members
+  commands: [list]
+- group: run-config
+  commands: [models, set-models, schedule, set-schedule]
+- group: notifications
+  commands: [list, read]
+key_flows:
+- "senso search \"query\" --output json --quiet  # agent-friendly semantic search"
+- "senso ingest upload <files...>                # ingest up to 10 files"
+- "senso generate run --prompt-ids ...           # trigger a content engine run"
+config_locations:
+  linux: ~/.config/senso/config.json
+  macos: ~/Library/Preferences/senso/config.json
+  windows: "%APPDATA%\\senso\\config.json"

@@ -1,0 +1,27 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.senso.ai/docs/authentication
+docs: https://docs.senso.ai/docs/authentication
+summary:
+  types: [apiKey]
+  api_key_in: [header]
+  oauth2_flows: []
+schemes:
+- name: ApiKeyAuth
+  type: apiKey
+  in: header
+  parameter_name: X-API-Key
+  key_prefix: tgr_
+  description: >-
+    All Senso Org API requests authenticate with an API key passed in the X-API-Key request
+    header. Keys are scoped to an organization and created/managed via the dashboard or the
+    api-keys API. The CLI resolves the key from --api-key, the SENSO_API_KEY env var, or a
+    stored config file. Docs describe API key scoping, headers, and best practices.
+  sources:
+  - https://docs.senso.ai/docs/authentication
+  - https://github.com/AI-Template-SDK/senso-user-cli
+notes: >-
+  The end-user dashboard (app.senso.ai / docs.senso.ai) uses Clerk for interactive sign-in
+  (publishable key pk_live_ at clerk.senso.ai), but programmatic API access is key-based
+  (X-API-Key). No OAuth 2.0 / OIDC scheme is documented for the API, so no OAuth scopes artifact
+  is emitted.

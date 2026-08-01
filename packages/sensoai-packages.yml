@@ -1,0 +1,20 @@
+generated: '2026-07-21'
+method: searched
+source: https://www.npmjs.com/package/@senso-ai/cli
+packages:
+- language: javascript
+  registry: npm
+  name: "@senso-ai/cli"
+  url: https://www.npmjs.com/package/@senso-ai/cli
+  install: npm install -g @senso-ai/cli
+  official: true
+  kind: cli
+  version: 0.11.1
+  repository: https://github.com/AI-Template-SDK/senso-user-cli
+  description: Official Senso command-line interface. Every endpoint in the Senso Org API is
+    available as a CLI command; built for AI agents (Claude Code, Gemini CLI, Codex) and developers.
+notes: >-
+  Only one first-party published package was found. Senso ships an official CLI (@senso-ai/cli)
+  rather than language SDK client libraries; no @senso-ai/sdk (npm), PyPI, Maven, NuGet, Go,
+  RubyGems, Packagist, or crates.io first-party client library was found as of the probe date.
+  The api-quickstart and api-mcp-server GitHub repos are example/reference code, not published SDKs.

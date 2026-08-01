@@ -1,0 +1,64 @@
+generated: '2026-07-21'
+method: derived
+source: github.com/AI-Template-SDK/senso-user-cli (CLI command surface) + api-mcp-server
+notes: >-
+  Entities and relationships derived from the Senso Org API surface exposed by the official CLI
+  and MCP server. No machine-readable OpenAPI was available on the public (unauthenticated) docs,
+  so relationships are inferred from the resource/command structure, not from spec $refs.
+entities:
+- name: Organization
+  id_prefix: null
+  description: Top-level tenant; owns all other resources.
+- name: User
+  description: Member of an organization, with a role.
+- name: ApiKey
+  id_prefix: tgr_
+  description: Key used to authenticate API requests, scoped to an organization.
+- name: Content
+  id_prefix: cnt_
+  description: A knowledge-base item (ingested source), with version history and owners.
+- name: ContentVersion
+  description: "A versioned revision of a Content item (verification workflow: draft/verify/reject/restore)."
+- name: ContentType
+  description: Template describing a kind of content that can be generated.
+- name: GeneratedContent
+  description: Content produced by the generation/content-engine (published or draft).
+- name: Prompt
+  description: A GEO question tracked and run against AI assistants; has run history.
+- name: BrandKit
+  description: Voice, tone, and writing rules used to shape generated content.
+- name: Competitor
+  description: A tracked competitor (name + url).
+- name: TrackedSource
+  description: Citation-classification rule (pattern, match_type, tier).
+- name: Notification
+  description: Org notification (read/unread).
+relationships:
+- from: User
+  to: Organization
+  type: belongs_to
+  via: org
+- from: ApiKey
+  to: Organization
+  type: belongs_to
+  via: org
+- from: Content
+  to: ContentVersion
+  type: has_many
+  via: versions
+- from: Content
+  to: User
+  type: has_many
+  via: owners
+- from: GeneratedContent
+  to: ContentType
+  type: belongs_to
+  via: content_type
+- from: GeneratedContent
+  to: Prompt
+  type: belongs_to
+  via: prompt
+- from: Prompt
+  to: BrandKit
+  type: references
+  via: brand_kit

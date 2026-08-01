@@ -1,0 +1,46 @@
+generated: '2026-07-21'
+method: searched
+status: published
+source: https://github.com/AI-Template-SDK/api-mcp-server
+server:
+  name: senso
+  transport: stdio
+  runtime: python
+  launch: uv --directory /ABSOLUTE/PATH/TO/api-mcp-server run server.py
+  auth: X-API-Key (Senso API key, set as API_KEY in server.py)
+  api_base: https://sdk.senso.ai/api/v1
+  description: >-
+    Official Model Context Protocol server for the Senso API, published by Senso (GitHub org
+    AI-Template-SDK). Lets Claude Desktop (and other MCP clients) add raw content, search, and
+    generate against a Senso knowledge base. Configured in claude_desktop_config.json.
+tools:
+- name: add_raw_content
+  description: Add raw text content (title, summary, text) to the knowledge base.
+  api_operation: POST /content/raw
+- name: search_content
+  description: Semantic search of the knowledge base; returns an AI answer plus source chunks.
+  api_operation: POST /search
+- name: generate_content
+  description: Generate content from instructions and existing knowledge; optionally save it.
+  api_operation: POST /generate
+- name: create_prompt
+  description: Create a prompt (GEO question) to track.
+  api_operation: POST /prompts
+- name: list_prompts
+  description: List existing prompts.
+  api_operation: GET /prompts
+- name: update_prompt
+  description: Update an existing prompt.
+  api_operation: PUT /prompts/{id}
+- name: create_template
+  description: Create a content template / content type.
+  api_operation: POST /templates
+- name: list_templates
+  description: List content templates / content types.
+  api_operation: GET /templates
+- name: update_template
+  description: Update a content template.
+  api_operation: PUT /templates/{id}
+- name: generate_with_prompt
+  description: Generate content using a stored prompt.
+  api_operation: POST /generate/prompt

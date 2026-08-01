@@ -1,7 +1,13 @@
 aid: sensoai
 name: Senso.ai
-description: Senso.ai is a company surfaced as a portfolio company of techstars and added to the API Evangelist
-  network as a stub for enrichment. This profile is a lead awaiting the enrichment pipeline.
+description: Senso.ai is a verified-context layer for the agentic web that keeps AI agents aligned
+  with an organization's ground truth. Teams ingest raw sources into a knowledge base, run semantic
+  search that returns an AI-generated answer plus the source chunks, and generate verified, on-brand
+  content from that knowledge. Senso also tracks how AI assistants (OpenAI, Gemini, Amazon Nova)
+  answer questions about a brand and remediates incorrect answers (generative engine optimization).
+  The Senso Org API is a key-authenticated REST API at https://apiv2.senso.ai/api/v1, with an
+  official CLI and a Model Context Protocol (MCP) server so agents like Claude can ingest, search,
+  and generate against a knowledge base directly.
 url: https://raw.githubusercontent.com/api-evangelist/sensoai/refs/heads/main/apis.yml
 x-type: company
 x-source: vc-portfolio
@@ -9,12 +15,50 @@ x-backed-by:
 - techstars
 x-tier: stub
 x-tier-reason: portfolio-lead
+accessModel:
+  pricing: unknown
+  onboarding: self-serve
+  trial: false
+  try_now: false
+  public: false
+  label: Self-serve signup
+  confidence: medium
+  source:
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 specificationVersion: '0.20'
 created: '2026-07-17'
-modified: '2026-07-17'
+modified: '2026-07-21'
+image: https://docs.senso.ai/senso-logo.png
 tags:
 - Company
-apis: []
+- Knowledge Base
+- AI Agents
+- Content Generation
+- Semantic Search
+- Generative Engine Optimization
+- Verified Context
+- Agentic Web
+- MCP
+apis:
+- name: Senso Org API
+  description: Key-authenticated REST API to ingest content into a knowledge base, run semantic
+    search with AI-generated answers, and generate verified content. Authenticated with an
+    X-API-Key header (keys prefixed tgr_).
+  humanURL: https://docs.senso.ai/
+  baseURL: https://apiv2.senso.ai/api/v1
+  tags:
+  - Knowledge Base
+  - Semantic Search
+  - Content Generation
+  properties:
+  - type: APIReference
+    url: https://docs.senso.ai/api-reference
+  - type: GettingStarted
+    url: https://docs.senso.ai/docs/hello-world
+  - type: Authentication
+    url: authentication/sensoai-authentication.yml
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com
@@ -23,3 +67,44 @@ maintainers:
 common:
 - type: Website
   url: https://senso.ai/
+- type: DeveloperPortal
+  url: https://docs.senso.ai/
+- type: Documentation
+  url: https://docs.senso.ai/
+- type: APIReference
+  url: https://docs.senso.ai/api-reference
+- type: GettingStarted
+  url: https://docs.senso.ai/docs/hello-world
+- type: Blog
+  url: https://blog.senso.ai/
+- type: Support
+  url: https://faqs.senso.ai/
+- type: GitHubOrganization
+  url: https://github.com/AI-Template-SDK
+- type: MCPServer
+  url: mcp/sensoai-mcp.yml
+- type: CLI
+  url: cli/sensoai-cli.yml
+- type: Packages
+  url: packages/sensoai-packages.yml
+- type: Authentication
+  url: authentication/sensoai-authentication.yml
+- type: Conventions
+  url: conventions/sensoai-conventions.yml
+- type: Lifecycle
+  url: lifecycle/sensoai-lifecycle.yml
+- type: Conformance
+  url: conformance/sensoai-conformance.yml
+- type: DataModel
+  url: data-model/sensoai-data-model.yml
+- type: DomainSecurity
+  url: security/sensoai-domain-security.yml
+- type: LLMsTxt
+  url: llms/sensoai-llms.txt
+- type: AgentSkill
+  url: skills/_index.yml
+x-enrichment:
+  date: '2026-07-21'
+  status: enriched
+  artifacts_added: 13
+  pass: local-v1

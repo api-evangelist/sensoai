@@ -1,0 +1,39 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.senso.ai/
+scope: Senso Org API (https://apiv2.senso.ai/api/v1)
+authentication:
+  style: api-key-header
+  header: X-API-Key
+  ref: authentication/sensoai-authentication.yml
+versioning:
+  style: uri-path
+  current: v1
+  base_path: /api/v1
+pagination:
+  style: offset-limit
+  params:
+  - limit
+  - offset
+  notes: >-
+    List endpoints (content, content-types, prompts, users, api-keys, members, notifications)
+    accept --limit / --offset in the CLI, indicating offset/limit pagination on the API. Several
+    lists also accept search, sort, and status filters.
+identifiers:
+  style: prefixed-ids
+  examples:
+  - prefix: cnt_
+    entity: content
+  - prefix: tgr_
+    entity: api_key
+media_type: application/json
+error_envelope:
+  documented: false
+  notes: A structured error envelope was not published on the public (unauthenticated) docs surface.
+rate_limits:
+  documented: false
+idempotency:
+  supported: false
+  notes: >-
+    No idempotency-key header or idempotent-retry contract is documented on the public API surface,
+    so no Idempotency pointer is emitted.

@@ -1,0 +1,12 @@
+generated: '2026-07-21'
+method: generated
+source: docs.senso.ai + github.com/AI-Template-SDK/api-mcp-server
+skills:
+- file: sensoai-ingest-and-search.md
+  name: Ingest sources and search your knowledge base
+  api: Senso Org API
+  operations: [add_raw_content, search_content]
+- file: sensoai-generate-verified-content.md
+  name: Generate verified content from your knowledge base
+  api: Senso Org API
+  operations: [generate_content, generate_with_prompt, list_templates]

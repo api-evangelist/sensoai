@@ -1,0 +1,21 @@
+generated: '2026-07-21'
+method: searched
+source: https://docs.senso.ai/
+versioning:
+  scheme: uri-path
+  current: v1
+  base_path: /api/v1
+  docs: https://docs.senso.ai/
+deprecation:
+  policy_url: null
+  sunset_header: null
+  notes: No published deprecation policy or RFC 8594 Sunset/Deprecation header support was found.
+sla:
+  url: null
+status_page: null
+deprecated_operations: []
+notes: >-
+  The API is served at https://apiv2.senso.ai/api/v1 (an earlier base, https://sdk.senso.ai/api/v1,
+  is used by the reference MCP server). Versioning is via URI path (v1). No public status page,
+  SLA, or deprecation policy was found as of the probe date, so no StatusPage/Deprecation pointers
+  are emitted.
