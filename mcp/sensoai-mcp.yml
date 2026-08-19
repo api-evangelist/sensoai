@@ -9,10 +9,9 @@ server:
   launch: uv --directory /ABSOLUTE/PATH/TO/api-mcp-server run server.py
   auth: X-API-Key (Senso API key, set as API_KEY in server.py)
   api_base: https://sdk.senso.ai/api/v1
-  description: >-
-    Official Model Context Protocol server for the Senso API, published by Senso (GitHub org
-    AI-Template-SDK). Lets Claude Desktop (and other MCP clients) add raw content, search, and
-    generate against a Senso knowledge base. Configured in claude_desktop_config.json.
+  description: Official Model Context Protocol server for the Senso API, published by Senso (GitHub org
+    AI-Template-SDK). Lets Claude Desktop (and other MCP clients) add raw content, search, and generate
+    against a Senso knowledge base. Configured in claude_desktop_config.json.
 tools:
 - name: add_raw_content
   description: Add raw text content (title, summary, text) to the knowledge base.
@@ -44,3 +43,12 @@ tools:
 - name: generate_with_prompt
   description: Generate content using a stored prompt.
   api_operation: POST /generate/prompt
+deployment:
+  mode: none
+  endpoint: https://sdk.senso.ai/api/v1
+  verified: probed
+  probe: dead
+  note: the endpoint this manifest claimed did not answer; recorded as none rather than deleted so the
+    claim stays auditable
+  checked: '2026-08-12'
+  source: catalog MCP census
